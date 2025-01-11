@@ -1,6 +1,7 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using MilitaryConscriptionSystem.Database;
 
 namespace MilitaryConscriptionSystem;
 
@@ -9,4 +10,5 @@ namespace MilitaryConscriptionSystem;
 /// </summary>
 public partial class App : Application
 {
+    public static Employee? Employee { get; set; }
 }

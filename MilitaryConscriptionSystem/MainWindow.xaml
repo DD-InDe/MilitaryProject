@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryConscriptionSystem"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        ResizeMode="CanResizeWithGrip"
+        Title="Система учета военнообязанных"
+        MinHeight="450"
+        MinWidth="800">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="{Binding ElementName=Frame, Path=Content.Title}"
+                   MaxWidth="300"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap" />
+
+        <Button x:Name="BackButton"
+                HorizontalAlignment="Right"
+                Grid.Row="0"
+                Visibility="Collapsed"
+                Content="Назад" />
+        <Button x:Name="ExitButton"
+                HorizontalAlignment="Right"
+                Grid.Row="0"
+                Visibility="Collapsed"
+                Content="Выйти" />
+
+        <Frame x:Name="Frame"
+               Grid.Row="1"
+               Navigated="Frame_OnNavigated"
+               Source="../AllPages/LoginPage.xaml"
+               NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

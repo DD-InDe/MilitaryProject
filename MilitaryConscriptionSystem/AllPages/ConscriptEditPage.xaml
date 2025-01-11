@@ -1,0 +1,105 @@
+﻿<Page x:Class="MilitaryConscriptionSystem.AllPages.ConscriptEditPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
+      mc:Ignorable="d"
+      Title="Управление призывником"
+      Loaded="ConscriptEditPage_OnLoaded"
+      d:DesignHeight="450"
+      d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="DataPanel" Orientation="Vertical"
+                    Grid.Column="0">
+            <DockPanel>
+                <TextBlock Text="Фамилия:" />
+                <TextBox x:Name="LastNameTextBox"
+                         Text="{Binding LastName}" />
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Имя:" />
+                <TextBox x:Name="FirstNameTextBox"
+                         Text="{Binding FirstName}" />
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Отчество:" />
+                <TextBox x:Name="MiddleNameTextBox"
+                         Text="{Binding MiddleName}" />
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Дата рождения:" />
+                <DatePicker x:Name="BirthDatePicker"
+                            SelectedDate="{Binding BirthDate}" />
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Дата становления на учет:" />
+                <DatePicker x:Name="RegistrationDateDatePicker"
+                            SelectedDate="{Binding RegistrationDate}" />
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Серия паспорта:" />
+                <TextBox x:Name="PassSTextBox"
+                         Text="{Binding Passport.Serial}" />
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Номер паспорта:" />
+                <TextBox x:Name="PassNTextBox"
+                         Text="{Binding Passport.Number}" />
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Кем выдан паспорт:" />
+                <TextBox x:Name="IssuedByTextBox"
+                         Text="{Binding Passport.IssuedBy}" />
+            </DockPanel>
+            <DockPanel>
+                <TextBlock Text="Дата выдачи паспорта:" />
+                <DatePicker x:Name="IssuedDatePicker"
+                            SelectedDate="{Binding Passport.IssuedDate}" />
+            </DockPanel>
+
+            <Button x:Name="SaveButton"
+                    Content="Сохранить"
+                    Click="SaveButton_OnClick" />
+        </StackPanel>
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="1">
+            <TextBlock Text="Документы" />
+            <ListView x:Name="FileListView"
+                      ItemsSource="{Binding ElementName=_documents}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding DocumentName}" />
+                            <TextBlock Text="{Binding Description}" />
+                            <Button x:Name="DeleteButton"
+                                    Content="Удалить" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackPanel Orientation="Vertical">
+                <DockPanel>
+                    <TextBlock Text="Описание:" />
+                    <TextBox x:Name="DescriptionTextBox"
+                             Text="{Binding ElementName=_document, Path=Description}" />
+                </DockPanel>
+                <DockPanel>
+                    <Button Content="Загрузить файл"
+                            x:Name="LoadFile"
+                            Click="LoadFile_OnClick" />
+                    <TextBlock x:Name="LoadedFileName"
+                               Text="{Binding ElementName=_document, Path=DocumentName}" />
+                </DockPanel>
+                <Button x:Name="SaveFileButton"
+                        Click="SaveFileButton_OnClick"
+                        Content="Добавить" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
