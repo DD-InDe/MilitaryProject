@@ -78,6 +78,7 @@
                             <TextBlock Text="{Binding DocumentName}" />
                             <TextBlock Text="{Binding Description}" />
                             <Button x:Name="DeleteButton"
+                                    Click="DeleteButton_OnClick"
                                     Content="Удалить" />
                         </StackPanel>
                     </DataTemplate>

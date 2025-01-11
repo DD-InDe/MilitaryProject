@@ -1,0 +1,32 @@
+﻿<Page x:Class="MilitaryConscriptionSystem.AllPages.AddNotice"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:kit="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
+      mc:Ignorable="d"
+      Title="Добавление повестки"
+      d:DesignHeight="450"
+      d:DesignWidth="800">
+
+    <StackPanel Orientation="Vertical">
+        <DockPanel>
+            <TextBlock Text="Дата и время:" />
+            <kit:DateTimePicker x:Name="DateTimePicker"/>
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Адрес:" />
+            <TextBox x:Name="AddressTextBox" />
+        </DockPanel>
+        <DockPanel>
+            <TextBlock Text="Призывная комиссия:" />
+            <ComboBox x:Name="CommissionComboBox"
+                      DisplayMemberPath="Name" />
+        </DockPanel>
+
+        <Button x:Name="SaveButton"
+                Content="Сохранить"
+                Click="SaveButton_OnClick" />
+    </StackPanel>
+</Page>

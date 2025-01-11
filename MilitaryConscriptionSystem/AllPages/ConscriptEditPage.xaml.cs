@@ -70,7 +70,8 @@ public partial class ConscriptEditPage : Page
         try
         {
             FileListView.ItemsSource = null;
-            FileListView.ItemsSource = Db.Context.ConscriptDocuments.Where(c => c.ConscriptId == _conscript.PassportId).ToList();
+            FileListView.ItemsSource = Db.Context.ConscriptDocuments.Where(c => c.ConscriptId == _conscript.PassportId)
+                .ToList();
         }
         catch (Exception e)
         {
@@ -94,6 +95,7 @@ public partial class ConscriptEditPage : Page
                 SaveFileButton.Visibility = Visibility.Collapsed;
                 DescriptionTextBox.Text = String.Empty;
                 LoadFiles();
+                MessageBox.Show("Файл добавлен!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             }
             else
                 MessageBox.Show("Призывник еще не добавлен!", "Сообщение", MessageBoxButton.OK,
@@ -131,6 +133,24 @@ public partial class ConscriptEditPage : Page
                     { DocumentFile = File.ReadAllBytes(dialog.FileName), DocumentName = dialog.SafeFileName };
                 SaveFileButton.Visibility = Visibility.Visible;
             }
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private void DeleteButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            ConscriptDocument document = ((Button)sender).DataContext as ConscriptDocument;
+            Db.Context.ConscriptDocuments.Remove(document);
+            Db.Context.SaveChanges();
+
+            MessageBox.Show("Файл удален!", "Сообщение", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            LoadFiles();
         }
         catch (Exception exception)
         {

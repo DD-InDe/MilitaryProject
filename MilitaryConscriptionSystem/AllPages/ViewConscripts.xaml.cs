@@ -11,6 +11,7 @@ public partial class ViewConscripts : Page
     {
         InitializeComponent();
         LoadData();
+        if (App.Employee.PositionId == 5) CreateNoticeButton.Visibility = Visibility.Visible;
     }
 
     private void LoadData()
@@ -67,6 +68,20 @@ public partial class ViewConscripts : Page
         {
             Console.WriteLine(exception);
             MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private void CreateNoticeButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Conscript? conscript = DataGrid.SelectedItem as Conscript;
+        if (conscript != null)
+        {
+            NavigationService.Navigate(new AddNotice(conscript));
+        }
+        else
+        {
+            MessageBox.Show("Выберите сначала призывника из таблицы", "Сообщение", MessageBoxButton.OK,
+                MessageBoxImage.Information);
         }
     }
 }
