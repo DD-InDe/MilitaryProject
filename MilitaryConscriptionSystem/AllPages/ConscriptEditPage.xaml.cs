@@ -10,18 +10,22 @@ public partial class ConscriptEditPage : Page
 {
     private ConscriptDocument? _document;
     private Conscript _conscript;
-    private List<ConscriptDocument> _documents = new();
 
     public ConscriptEditPage()
     {
+        _conscript = new()
+        {
+            Passport = new() { IssuedDate = DateOnly.FromDateTime(DateTime.Now) },
+            BirthDate = DateOnly.FromDateTime(DateTime.Now),
+            RegistrationDate = DateOnly.FromDateTime(DateTime.Now)
+        };
         InitializeComponent();
-        _conscript = new() { Passport = new() };
     }
 
     public ConscriptEditPage(Conscript conscript)
     {
-        InitializeComponent();
         _conscript = conscript;
+        InitializeComponent();
     }
 
     private void SaveButton_OnClick(object sender, RoutedEventArgs e)
@@ -65,8 +69,8 @@ public partial class ConscriptEditPage : Page
     {
         try
         {
-            _documents.Clear();
-            _documents.AddRange(Db.Context.ConscriptDocuments.Where(c => c.ConscriptId == _conscript.PassportId));
+            FileListView.ItemsSource = null;
+            FileListView.ItemsSource = Db.Context.ConscriptDocuments.Where(c => c.ConscriptId == _conscript.PassportId).ToList();
         }
         catch (Exception e)
         {
@@ -79,6 +83,21 @@ public partial class ConscriptEditPage : Page
     {
         try
         {
+            if (_conscript.PassportId != 0)
+            {
+                _document.Description = DescriptionTextBox.Text;
+                _document.ConscriptId = _conscript.PassportId;
+                Db.Context.ConscriptDocuments.Add(_document);
+                Db.Context.SaveChanges();
+
+                _document = new();
+                SaveFileButton.Visibility = Visibility.Collapsed;
+                DescriptionTextBox.Text = String.Empty;
+                LoadFiles();
+            }
+            else
+                MessageBox.Show("Призывник еще не добавлен!", "Сообщение", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
         }
         catch (Exception exception)
         {
@@ -110,7 +129,7 @@ public partial class ConscriptEditPage : Page
             {
                 _document = new()
                     { DocumentFile = File.ReadAllBytes(dialog.FileName), DocumentName = dialog.SafeFileName };
-                
+                SaveFileButton.Visibility = Visibility.Visible;
             }
         }
         catch (Exception exception)

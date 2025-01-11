@@ -26,16 +26,40 @@ public partial class MainWindow : Window
     {
         try
         {
-            if (Frame.Content.GetType() == typeof(MenuPage))
+            if (Frame.CanGoBack)
+            {
+                if (Frame.Content.GetType() == typeof(MenuPage))
+                {
+                    BackButton.Visibility = Visibility.Collapsed;
+                    ExitButton.Visibility = Visibility.Visible;
+                }
+                else if (Frame.CanGoBack)
+                {
+                    BackButton.Visibility = Visibility.Visible;
+                    ExitButton.Visibility = Visibility.Collapsed;
+                }
+            }
+            else
             {
                 BackButton.Visibility = Visibility.Collapsed;
-                ExitButton.Visibility = Visibility.Visible;
-            }
-            else if (Frame.CanGoBack)
-            {
-                BackButton.Visibility = Visibility.Visible;
                 ExitButton.Visibility = Visibility.Collapsed;
             }
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private void BackButton_OnClick(object sender, RoutedEventArgs e) => Frame.GoBack();
+
+    private void ExitButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            App.Employee = null;
+            Frame.GoBack();
         }
         catch (Exception exception)
         {

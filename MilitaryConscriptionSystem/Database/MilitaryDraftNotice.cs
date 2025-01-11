@@ -13,13 +13,13 @@ public partial class MilitaryDraftNotice
 
     public int? ConscriptId { get; set; }
 
-    public int? ConscriptCommissionId { get; set; }
+    public int? ConscriptionCommissionId { get; set; }
 
     public TimeOnly? Time { get; set; }
 
     public virtual Conscript? Conscript { get; set; }
 
-    public virtual ConscriptionCommission? ConscriptCommission { get; set; }
+    public virtual ConscriptionCommission? ConscriptionCommission { get; set; }
 
     public virtual MedicalCommission? MedicalCommission { get; set; }
 }

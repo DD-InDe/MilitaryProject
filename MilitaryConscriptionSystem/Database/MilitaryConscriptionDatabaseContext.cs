@@ -164,13 +164,13 @@ public partial class MilitaryConscriptionDatabaseContext : DbContext
 
             entity.Property(e => e.Address).HasMaxLength(200);
 
-            entity.HasOne(d => d.ConscriptCommission).WithMany(p => p.MilitaryDraftNotices)
-                .HasForeignKey(d => d.ConscriptCommissionId)
-                .HasConstraintName("FK__MilitaryD__Consc__6754599E");
-
             entity.HasOne(d => d.Conscript).WithMany(p => p.MilitaryDraftNotices)
                 .HasForeignKey(d => d.ConscriptId)
                 .HasConstraintName("FK__MilitaryD__Consc__66603565");
+
+            entity.HasOne(d => d.ConscriptionCommission).WithMany(p => p.MilitaryDraftNotices)
+                .HasForeignKey(d => d.ConscriptionCommissionId)
+                .HasConstraintName("FK__MilitaryD__Consc__6754599E");
         });
 
         modelBuilder.Entity<Passport>(entity =>

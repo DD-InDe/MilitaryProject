@@ -24,10 +24,12 @@
                 HorizontalAlignment="Right"
                 Grid.Row="0"
                 Visibility="Collapsed"
+                Click="BackButton_OnClick"
                 Content="Назад" />
         <Button x:Name="ExitButton"
                 HorizontalAlignment="Right"
                 Grid.Row="0"
+                Click="ExitButton_OnClick"
                 Visibility="Collapsed"
                 Content="Выйти" />
 

@@ -15,7 +15,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel x:Name="DataPanel" Orientation="Vertical"
+        <StackPanel x:Name="DataPanel"
+                    Orientation="Vertical"
                     Grid.Column="0">
             <DockPanel>
                 <TextBlock Text="Фамилия:" />
@@ -35,12 +36,12 @@
             <DockPanel>
                 <TextBlock Text="Дата рождения:" />
                 <DatePicker x:Name="BirthDatePicker"
-                            SelectedDate="{Binding BirthDate}" />
+                            SelectedDate="{Binding BirthDateTime}" />
             </DockPanel>
             <DockPanel>
                 <TextBlock Text="Дата становления на учет:" />
                 <DatePicker x:Name="RegistrationDateDatePicker"
-                            SelectedDate="{Binding RegistrationDate}" />
+                            SelectedDate="{Binding RegistrationDateTime}" />
             </DockPanel>
             <DockPanel>
                 <TextBlock Text="Серия паспорта:" />
@@ -60,7 +61,7 @@
             <DockPanel>
                 <TextBlock Text="Дата выдачи паспорта:" />
                 <DatePicker x:Name="IssuedDatePicker"
-                            SelectedDate="{Binding Passport.IssuedDate}" />
+                            SelectedDate="{Binding Passport.IssuedDateTime}" />
             </DockPanel>
 
             <Button x:Name="SaveButton"
@@ -70,8 +71,7 @@
         <StackPanel Orientation="Vertical"
                     Grid.Column="1">
             <TextBlock Text="Документы" />
-            <ListView x:Name="FileListView"
-                      ItemsSource="{Binding ElementName=_documents}">
+            <ListView x:Name="FileListView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Vertical">
@@ -86,17 +86,16 @@
             <StackPanel Orientation="Vertical">
                 <DockPanel>
                     <TextBlock Text="Описание:" />
-                    <TextBox x:Name="DescriptionTextBox"
-                             Text="{Binding ElementName=_document, Path=Description}" />
+                    <TextBox x:Name="DescriptionTextBox"/>
                 </DockPanel>
                 <DockPanel>
                     <Button Content="Загрузить файл"
                             x:Name="LoadFile"
                             Click="LoadFile_OnClick" />
-                    <TextBlock x:Name="LoadedFileName"
-                               Text="{Binding ElementName=_document, Path=DocumentName}" />
+                    <TextBlock x:Name="LoadedFileName" />
                 </DockPanel>
                 <Button x:Name="SaveFileButton"
+                        Visibility="Collapsed"
                         Click="SaveFileButton_OnClick"
                         Content="Добавить" />
             </StackPanel>
