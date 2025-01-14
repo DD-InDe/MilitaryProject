@@ -17,9 +17,13 @@ public partial class MilitaryDraftNotice
 
     public TimeOnly? Time { get; set; }
 
+    public int? ResultId { get; set; }
+
     public virtual Conscript? Conscript { get; set; }
 
     public virtual ConscriptionCommission? ConscriptionCommission { get; set; }
 
     public virtual MedicalCommission? MedicalCommission { get; set; }
+
+    public virtual Result? Result { get; set; }
 }

@@ -11,21 +11,23 @@
       d:DesignWidth="800">
 
     <StackPanel Orientation="Vertical">
-        <DockPanel>
-            <TextBlock Text="Дата и время:" />
+        <DockPanel VerticalAlignment="Center">
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Дата и время:" />
             <kit:DateTimePicker x:Name="DateTimePicker"/>
         </DockPanel>
-        <DockPanel>
-            <TextBlock Text="Адрес:" />
-            <TextBox x:Name="AddressTextBox" />
+        <DockPanel VerticalAlignment="Center">
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Адрес:" />
+            <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="AddressTextBox" />
         </DockPanel>
-        <DockPanel>
-            <TextBlock Text="Призывная комиссия:" />
-            <ComboBox x:Name="CommissionComboBox"
+        <DockPanel VerticalAlignment="Center">
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Призывная комиссия:" />
+            <ComboBox Margin="7"
+                            Width="200"
+                            HorizontalAlignment="Right" x:Name="CommissionComboBox"
                       DisplayMemberPath="Name" />
         </DockPanel>
 
-        <Button x:Name="SaveButton"
+        <Button Margin="7" Padding="5" x:Name="SaveButton"
                 Content="Сохранить"
                 Click="SaveButton_OnClick" />
     </StackPanel>

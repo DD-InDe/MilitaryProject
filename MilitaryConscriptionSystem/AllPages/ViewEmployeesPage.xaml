@@ -1,11 +1,11 @@
-﻿<Page x:Class="MilitaryConscriptionSystem.AllPages.ViewConscripts"
+﻿<Page x:Class="MilitaryConscriptionSystem.AllPages.ViewEmployeesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
       mc:Ignorable="d"
-      Title="Список призывников"
+      Title="Сотрудники"
       d:DesignHeight="450"
       d:DesignWidth="800">
     <Grid>
@@ -19,6 +19,13 @@
             <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Поиск:" />
             <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="SearchTextBox"
                      TextChanged="SearchTextBox_OnTextChanged" />
+
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Должность:" />
+            <ComboBox Margin="7"
+                            Width="200"
+                            HorizontalAlignment="Right" x:Name="PositionComboBox"
+                      SelectionChanged="PositionComboBox_OnSelectionChanged"
+                      DisplayMemberPath="Name" />
         </StackPanel>
 
         <ScrollViewer Grid.Row="1">
@@ -32,8 +39,8 @@
                                         Binding="{Binding FirstName}" />
                     <DataGridTextColumn Header="Отчество"
                                         Binding="{Binding MiddleName}" />
-                    <DataGridTextColumn Header="Дата рождения"
-                                        Binding="{Binding BirthDate}" />
+                    <DataGridTextColumn Header="Должность"
+                                        Binding="{Binding Position.Name}" />
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
@@ -46,10 +53,6 @@
             <Button Margin="7" Padding="5" x:Name="ViewInfoButton"
                     Click="ViewInfoButton_OnClick"
                     Content="Информация" />
-            <Button Margin="7" Padding="5" x:Name="CreateNoticeButton"
-                    Visibility="Collapsed"
-                    Click="CreateNoticeButton_OnClick"
-                    Content="Создать повестку" />
         </StackPanel>
     </Grid>
 </Page>

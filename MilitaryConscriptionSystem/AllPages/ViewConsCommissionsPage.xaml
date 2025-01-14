@@ -1,0 +1,66 @@
+﻿<Page x:Class="MilitaryConscriptionSystem.AllPages.ViewConsCommissionsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
+      mc:Ignorable="d"
+      Title="Список комиссий"
+      d:DesignHeight="450"
+      d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Поиск:" />
+            <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="SearchTextBox"
+                     TextChanged="SearchTextBox_OnTextChanged" />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <DataGrid x:Name="DataGrid"
+                      IsReadOnly="True"
+                      AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Дата начала работы"
+                                        Binding="{Binding Commission.CreateDate}" />
+                    <DataGridTextColumn Header="Дата окончания работы"
+                                        Binding="{Binding Commission.WorksUntilDate}" />
+                    <DataGridTextColumn Header="Протокол"
+                                        Binding="{Binding Commission.ContainsProtocol}" />
+                    <DataGridTemplateColumn Header="Сотрудники">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding Employees}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding ComboBoxField}" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Margin="7" Padding="5" Content="Загрузить протокол"
+                                        x:Name="ProtocolButton"
+                                        Click="ProtocolButton_OnClick" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
+
+        <Button Margin="7" Padding="5" x:Name="AddButton"
+                Click="AddButton_OnClick"
+                Grid.Row="2"
+                Content="Добавить" />
+    </Grid>
+</Page>

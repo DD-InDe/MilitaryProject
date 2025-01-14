@@ -26,6 +26,8 @@ public partial class AddNotice : Page
             if (DateTimePicker.Value != null && !String.IsNullOrEmpty(AddressTextBox.Text) &&
                 CommissionComboBox.SelectedItem != null)
             {
+                _notice.Date = DateOnly.FromDateTime(DateTimePicker.Value.Value);
+                _notice.Time = TimeOnly.FromDateTime(DateTimePicker.Value.Value);
                 _notice.Address = AddressTextBox.Text;
                 _notice.ConscriptionCommissionId =
                     ((ConscriptionCommission)CommissionComboBox.SelectedItem).ConscriptionCommissionId;
@@ -35,6 +37,7 @@ public partial class AddNotice : Page
 
                 MessageBox.Show("Данные сохранены!", "Сообщение", MessageBoxButton.OK,
                     MessageBoxImage.Information);
+                NavigationService.GoBack();
             }
             else
                 MessageBox.Show("Поля не могут быть пустыми!", "Сообщение", MessageBoxButton.OK,

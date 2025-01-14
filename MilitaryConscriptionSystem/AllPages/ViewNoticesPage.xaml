@@ -1,18 +1,17 @@
-﻿<Page x:Class="MilitaryConscriptionSystem.AllPages.ViewConscripts"
+﻿<Page x:Class="MilitaryConscriptionSystem.AllPages.ViewNoticesPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
       mc:Ignorable="d"
-      Title="Список призывников"
+      Title="Повестки"
       d:DesignHeight="450"
       d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
@@ -26,30 +25,26 @@
                       IsReadOnly="True"
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
+                    <DataGridTextColumn Header="Дата"
+                                        Binding="{Binding Date}" />
+                    <DataGridTextColumn Header="Время"
+                                        Binding="{Binding Time, StringFormat='{}{0:HH:mm}'}" />
                     <DataGridTextColumn Header="Фамилия"
-                                        Binding="{Binding LastName}" />
+                                        Binding="{Binding Conscript.FirstName}" />
                     <DataGridTextColumn Header="Имя"
-                                        Binding="{Binding FirstName}" />
+                                        Binding="{Binding Conscript.LastName}" />
                     <DataGridTextColumn Header="Отчество"
-                                        Binding="{Binding MiddleName}" />
-                    <DataGridTextColumn Header="Дата рождения"
-                                        Binding="{Binding BirthDate}" />
+                                        Binding="{Binding Conscript.MiddleName}" />
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Margin="7" Padding="5" Content="Подробнее"
+                                        Click="InfoButton_OnClick" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </ScrollViewer>
-
-        <StackPanel Orientation="Horizontal"
-                    Grid.Row="2">
-            <Button Margin="7" Padding="5" x:Name="AddButton"
-                    Click="AddButton_OnClick"
-                    Content="Добавить" />
-            <Button Margin="7" Padding="5" x:Name="ViewInfoButton"
-                    Click="ViewInfoButton_OnClick"
-                    Content="Информация" />
-            <Button Margin="7" Padding="5" x:Name="CreateNoticeButton"
-                    Visibility="Collapsed"
-                    Click="CreateNoticeButton_OnClick"
-                    Content="Создать повестку" />
-        </StackPanel>
     </Grid>
 </Page>

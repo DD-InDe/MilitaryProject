@@ -3,23 +3,47 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
       mc:Ignorable="d"
-      Title="Авторизация"
-      d:DesignHeight="450"
-      d:DesignWidth="800">
-    <StackPanel Orientation="Vertical">
-        <TextBlock Text="Вход в систему" />
+      Title="Авторизация">
 
-        <DockPanel>
-            <TextBlock Text="Логин:" />
-            <TextBox x:Name="LoginTextBox" />
-        </DockPanel>
-        <DockPanel>
-            <TextBlock Text="Пароль:" />
-            <PasswordBox x:Name="PasswordBox" />
-        </DockPanel>
-        
-        <Button x:Name="LoginButton" Content="Войти в систему" Click="LoginButton_OnClick"/>
-    </StackPanel>
+    <design:Card Padding="32"
+                 Margin="16"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical">
+            <TextBlock VerticalAlignment="Center"
+                       Style="{DynamicResource MaterialDesignSubtitle1TextBlock}"
+                       HorizontalAlignment="Center"
+                       Margin="10"
+                       Text="Вход в систему" />
+
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Логин:" />
+                <TextBox HorizontalAlignment="Right"
+                         Width="200"
+                         Margin="7"
+                         x:Name="LoginTextBox" />
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Пароль:" />
+                <PasswordBox x:Name="PasswordBox"
+                             Width="200"
+                             HorizontalAlignment="Right"
+                             Margin="7" />
+            </DockPanel>
+
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="LoginButton"
+                    Content="Войти в систему"
+                    Style="{DynamicResource MaterialDesignRaisedButton}"
+                    Click="LoginButton_OnClick" />
+        </StackPanel>
+    </design:Card>
 </Page>

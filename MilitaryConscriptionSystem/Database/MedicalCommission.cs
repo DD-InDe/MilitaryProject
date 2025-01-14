@@ -13,11 +13,11 @@ public partial class MedicalCommission
 
     public string? Note { get; set; }
 
-    public string? CategoryKey { get; set; }
-
     public bool? Confirmed { get; set; }
 
-    public virtual Category? CategoryKeyNavigation { get; set; }
+    public int? CategoryId { get; set; }
+
+    public virtual Category? Category { get; set; }
 
     public virtual MilitaryDraftNotice MilitaryDraftNotice { get; set; } = null!;
 }

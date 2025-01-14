@@ -35,6 +35,8 @@ public partial class MilitaryConscriptionDatabaseContext : DbContext
 
     public virtual DbSet<Position> Positions { get; set; }
 
+    public virtual DbSet<Result> Results { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=LEGION;Database=MilitaryConscriptionDatabase;Trusted_Connection=True;TrustServerCertificate=True");
@@ -43,14 +45,14 @@ public partial class MilitaryConscriptionDatabaseContext : DbContext
     {
         modelBuilder.Entity<Category>(entity =>
         {
-            entity.HasKey(e => e.CategoryKey).HasName("PK__Category__76B0FE41E02E4EE7");
+            entity.HasKey(e => e.CategoryId).HasName("PK__Category__19093A0BD14D72A9");
 
             entity.ToTable("Category");
 
+            entity.Property(e => e.CategoryId).ValueGeneratedNever();
             entity.Property(e => e.CategoryKey)
                 .HasMaxLength(1)
-                .IsUnicode(false)
-                .IsFixedLength();
+                .IsUnicode(false);
             entity.Property(e => e.Description).HasMaxLength(200);
         });
 
@@ -98,8 +100,8 @@ public partial class MilitaryConscriptionDatabaseContext : DbContext
 
             entity.ToTable("ConscriptionCommissionEmployee");
 
-            entity.HasOne(d => d.ConscriptionCommissionNavigation).WithMany(p => p.ConscriptionCommissionEmployees)
-                .HasForeignKey(d => d.ConscriptionCommission)
+            entity.HasOne(d => d.ConscriptionCommission).WithMany(p => p.ConscriptionCommissionEmployees)
+                .HasForeignKey(d => d.ConscriptionCommissionId)
                 .HasConstraintName("FK__Conscript__Consc__628FA481");
 
             entity.HasOne(d => d.Employee).WithMany(p => p.ConscriptionCommissionEmployees)
@@ -137,18 +139,14 @@ public partial class MilitaryConscriptionDatabaseContext : DbContext
             entity.ToTable("MedicalCommission");
 
             entity.Property(e => e.MilitaryDraftNoticeId).ValueGeneratedNever();
-            entity.Property(e => e.CategoryKey)
-                .HasMaxLength(1)
-                .IsUnicode(false)
-                .IsFixedLength();
             entity.Property(e => e.Confirmed).HasDefaultValue(false);
             entity.Property(e => e.Diagnoses).HasMaxLength(500);
             entity.Property(e => e.HealthComplaints).HasMaxLength(500);
             entity.Property(e => e.Note).HasMaxLength(200);
 
-            entity.HasOne(d => d.CategoryKeyNavigation).WithMany(p => p.MedicalCommissions)
-                .HasForeignKey(d => d.CategoryKey)
-                .HasConstraintName("FK__MedicalCo__Categ__6A30C649");
+            entity.HasOne(d => d.Category).WithMany(p => p.MedicalCommissions)
+                .HasForeignKey(d => d.CategoryId)
+                .HasConstraintName("FK__MedicalCo__Categ__75A278F5");
 
             entity.HasOne(d => d.MilitaryDraftNotice).WithOne(p => p.MedicalCommission)
                 .HasForeignKey<MedicalCommission>(d => d.MilitaryDraftNoticeId)
@@ -171,6 +169,10 @@ public partial class MilitaryConscriptionDatabaseContext : DbContext
             entity.HasOne(d => d.ConscriptionCommission).WithMany(p => p.MilitaryDraftNotices)
                 .HasForeignKey(d => d.ConscriptionCommissionId)
                 .HasConstraintName("FK__MilitaryD__Consc__6754599E");
+
+            entity.HasOne(d => d.Result).WithMany(p => p.MilitaryDraftNotices)
+                .HasForeignKey(d => d.ResultId)
+                .HasConstraintName("FK__MilitaryD__Resul__73BA3083");
         });
 
         modelBuilder.Entity<Passport>(entity =>
@@ -189,6 +191,15 @@ public partial class MilitaryConscriptionDatabaseContext : DbContext
             entity.ToTable("Position");
 
             entity.Property(e => e.Name).HasMaxLength(150);
+        });
+
+        modelBuilder.Entity<Result>(entity =>
+        {
+            entity.HasKey(e => e.ResultId).HasName("PK__Result__97690208984BD72F");
+
+            entity.ToTable("Result");
+
+            entity.Property(e => e.Description).HasMaxLength(200);
         });
 
         OnModelCreatingPartial(modelBuilder);

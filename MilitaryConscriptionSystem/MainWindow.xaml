@@ -4,34 +4,50 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MilitaryConscriptionSystem"
+        xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip"
+        Background="#fafafa"
         Title="Система учета военнообязанных"
-        MinHeight="450"
-        MinWidth="800">
-    <Grid ShowGridLines="True">
+        MinHeight="350"
+        MinWidth="500">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
+        <Border BorderBrush="Black"
+                BorderThickness="0,0,0,1">
+            <design:Card>
+                <Grid>
+                    <TextBlock Style="{DynamicResource MaterialDesignSubtitle1TextBlock}"
+                               VerticalAlignment="Center"
+                               Margin="10"
+                               Text="{Binding ElementName=Frame, Path=Content.Title}"
+                               MaxWidth="300"
+                               HorizontalAlignment="Center"
+                               TextWrapping="Wrap" />
 
-        <TextBlock Text="{Binding ElementName=Frame, Path=Content.Title}"
-                   MaxWidth="300"
-                   HorizontalAlignment="Center"
-                   TextWrapping="Wrap" />
 
-        <Button x:Name="BackButton"
-                HorizontalAlignment="Right"
-                Grid.Row="0"
-                Visibility="Collapsed"
-                Click="BackButton_OnClick"
-                Content="Назад" />
-        <Button x:Name="ExitButton"
-                HorizontalAlignment="Right"
-                Grid.Row="0"
-                Click="ExitButton_OnClick"
-                Visibility="Collapsed"
-                Content="Выйти" />
+                    <Button x:Name="BackButton"
+                            Grid.Row="0"
+                            Margin="7"
+                            Padding="5"
+                            HorizontalAlignment="Right"
+                            Visibility="Collapsed"
+                            Click="BackButton_OnClick"
+                            Content="Назад" />
+                    <Button Margin="7"
+                            Padding="5"
+                            x:Name="ExitButton"
+                            HorizontalAlignment="Right"
+                            Grid.Row="0"
+                            Click="ExitButton_OnClick"
+                            Visibility="Collapsed"
+                            Content="Выйти" />
+                </Grid>
+            </design:Card>
+        </Border>
 
         <Frame x:Name="Frame"
                Grid.Row="1"

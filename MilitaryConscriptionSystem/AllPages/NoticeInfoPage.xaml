@@ -1,0 +1,120 @@
+﻿<Page x:Class="MilitaryConscriptionSystem.AllPages.NoticeInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
+      mc:Ignorable="d"
+      Title="Информация по повестке"
+      d:DesignHeight="450"
+      d:DesignWidth="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Vertical"
+                    x:Name="MainInfoPanel">
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Фамилия" />
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding Conscript.LastName}" />
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Имя" />
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding Conscript.FirstName}" />
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Отчество" />
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding Conscript.FirstName}" />
+            </DockPanel>
+
+            <Button Margin="7" Padding="5" x:Name="ConscriptButton"
+                    Content="Больше информации"
+                    Click="ConscriptButton_OnClick" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="1">
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Информация о медицинской комиссии и вынесение вердикта" />
+            <StackPanel x:Name="ViewMedCommissionPanel"
+                        Visibility="Collapsed"
+                        Orientation="Vertical">
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Жалобы на здоровье:" />
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding HealthComplaints}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Диагнозы:" />
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding Diagnoses}" />
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding DiagnosesApproved}"/>
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Заметка:" />
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding Note}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding Description}" />
+                </DockPanel>
+
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" x:Name="AddResultPanel"
+                           Visibility="Collapsed">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Вердикт:" />
+                    <ComboBox Margin="7"
+                            Width="200"
+                            HorizontalAlignment="Right" x:Name="ResultComboBox"
+                              SelectedItem="{Binding Result}"
+                              DisplayMemberPath="Description" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right" x:Name="ViewResultPanel"
+                           Visibility="Collapsed">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Вердикт:" />
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding Result.Description}" />
+                </DockPanel>
+            </StackPanel>
+            <StackPanel x:Name="AddMedCommissionPanel"
+                        Visibility="Collapsed"
+                        Orientation="Vertical">
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Жалобы на здоровье:" />
+                    <TextBox HorizontalAlignment="Right" Width="200" Margin="7" TextWrapping="Wrap"
+                             Text="{Binding HealthComplaints}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Диагнозы:" />
+                    <TextBox HorizontalAlignment="Right" Width="200" Margin="7" TextWrapping="Wrap"
+                             Text="{Binding Diagnoses}" />
+                    <CheckBox Content="Подтверждено справками"
+                              IsChecked="{Binding Confirmed}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Заметка:" />
+                    <TextBox HorizontalAlignment="Right" Width="200" Margin="7" TextWrapping="Wrap"
+                             Text="{Binding Note}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Категория:" />
+                    <ComboBox Margin="7"
+                            Width="200"
+                            HorizontalAlignment="Right" x:Name="CategoryComboBox"
+                              DisplayMemberPath="CategoryKey"
+                              SelectedItem="{Binding Category}" />
+                </DockPanel>
+                <Button Margin="7" Padding="5" x:Name="SaveMedButton"
+                        Content="Сохранить"
+                        Click="SaveMedButton_OnClick" />
+            </StackPanel>
+            <Button Margin="7" Padding="5" x:Name="AddMedCommissionButton"
+                    Visibility="Collapsed"
+                    Content="Добавить информацию о мед. комиссии"
+                    Click="AddMedCommissionButton_OnClick" />
+
+            <Button Margin="7" Padding="5" x:Name="SaveResultButton"
+                    Visibility="Collapsed"
+                    Content="Сохранить"
+                    Click="SaveResultButton_OnClick" />
+        </StackPanel>
+    </Grid>
+
+</Page>

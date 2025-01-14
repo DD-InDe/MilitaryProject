@@ -24,6 +24,9 @@ public partial class ConscriptEditPage : Page
 
     public ConscriptEditPage(Conscript conscript)
     {
+        if (conscript.Passport == null)
+            conscript.Passport = Db.Context.Passports.Find(conscript.PassportId);
+
         _conscript = conscript;
         InitializeComponent();
     }

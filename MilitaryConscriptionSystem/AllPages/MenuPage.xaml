@@ -3,16 +3,37 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
       mc:Ignorable="d"
-      Title="Главное меню"
-      d:DesignHeight="450"
-      d:DesignWidth="800">
-    <Grid>
+      Title="Главное меню">
+    <design:Card Padding="20"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Width="350">
         <StackPanel Orientation="Vertical">
-            <Button x:Name="ConscriptButton"
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="ConscriptButton"
                     Click="ConscriptButton_OnClick"
                     Content="Призывники" />
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="EmployeeButton"
+                    Visibility="Collapsed"
+                    Click="EmployeeButton_OnClick"
+                    Content="Сотрудники" />
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="CommissionButton"
+                    Visibility="Collapsed"
+                    Click="CommissionButton_OnClick"
+                    Content="Призывные комиссии" />
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="NoticesButton"
+                    Click="NoticesButton_OnClick"
+                    Content="Повестки" />
         </StackPanel>
-    </Grid>
+    </design:Card>
 </Page>
