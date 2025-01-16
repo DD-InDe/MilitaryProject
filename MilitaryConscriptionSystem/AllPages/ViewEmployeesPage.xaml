@@ -16,14 +16,22 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Поиск:" />
-            <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="SearchTextBox"
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Поиск:" />
+            <TextBox HorizontalAlignment="Right"
+                     Width="200"
+                     Margin="7"
+                     x:Name="SearchTextBox"
                      TextChanged="SearchTextBox_OnTextChanged" />
 
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Должность:" />
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Должность:" />
             <ComboBox Margin="7"
-                            Width="200"
-                            HorizontalAlignment="Right" x:Name="PositionComboBox"
+                      Width="200"
+                      HorizontalAlignment="Right"
+                      x:Name="PositionComboBox"
                       SelectionChanged="PositionComboBox_OnSelectionChanged"
                       DisplayMemberPath="Name" />
         </StackPanel>
@@ -34,12 +42,16 @@
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Фамилия"
+                                        Width="*"
                                         Binding="{Binding LastName}" />
                     <DataGridTextColumn Header="Имя"
+                                        Width="*"
                                         Binding="{Binding FirstName}" />
                     <DataGridTextColumn Header="Отчество"
+                                        Width="*"
                                         Binding="{Binding MiddleName}" />
                     <DataGridTextColumn Header="Должность"
+                                        Width="*"
                                         Binding="{Binding Position.Name}" />
                 </DataGrid.Columns>
             </DataGrid>
@@ -47,10 +59,14 @@
 
         <StackPanel Orientation="Horizontal"
                     Grid.Row="2">
-            <Button Margin="7" Padding="5" x:Name="AddButton"
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="AddButton"
                     Click="AddButton_OnClick"
                     Content="Добавить" />
-            <Button Margin="7" Padding="5" x:Name="ViewInfoButton"
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="ViewInfoButton"
                     Click="ViewInfoButton_OnClick"
                     Content="Информация" />
         </StackPanel>

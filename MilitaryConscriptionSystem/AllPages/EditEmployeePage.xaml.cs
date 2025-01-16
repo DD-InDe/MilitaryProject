@@ -4,11 +4,11 @@ using MilitaryConscriptionSystem.Database;
 
 namespace MilitaryConscriptionSystem.AllPages;
 
-public partial class EmployeeEditPage : Page
+public partial class EditEmployeePage : Page
 {
     private Employee _employee;
 
-    public EmployeeEditPage()
+    public EditEmployeePage()
     {
         _employee = new()
         {
@@ -18,10 +18,11 @@ public partial class EmployeeEditPage : Page
         InitializeComponent();
     }
 
-    public EmployeeEditPage(Employee employee)
+    public EditEmployeePage(Employee employee)
     {
         _employee = employee;
         InitializeComponent();
+        if (_employee.PositionId == 5) PositionComboBox.IsEnabled = false;
     }
 
     private void EmployeeEditPage_OnLoaded(object sender, RoutedEventArgs e)
