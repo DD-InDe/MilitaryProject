@@ -46,7 +46,7 @@ public partial class ViewConscripts : Page
 
     private void AddButton_OnClick(object sender, RoutedEventArgs e)
     {
-        NavigationService.Navigate(new ConscriptEditPage());
+        NavigationService.Navigate(new EditConscriptPage());
     }
 
     private void ViewInfoButton_OnClick(object sender, RoutedEventArgs e)
@@ -56,7 +56,7 @@ public partial class ViewConscripts : Page
             Conscript? conscript = DataGrid.SelectedItem as Conscript;
             if (conscript != null)
             {
-                NavigationService.Navigate(new ConscriptEditPage(conscript));
+                NavigationService.Navigate(new EditConscriptPage(conscript));
             }
             else
             {
@@ -76,7 +76,7 @@ public partial class ViewConscripts : Page
         Conscript? conscript = DataGrid.SelectedItem as Conscript;
         if (conscript != null)
         {
-            NavigationService.Navigate(new AddNotice(conscript));
+            NavigationService.Navigate(new AddNoticePage(conscript));
         }
         else
         {

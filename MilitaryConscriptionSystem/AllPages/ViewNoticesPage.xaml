@@ -14,10 +14,42 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Поиск:" />
-            <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="SearchTextBox"
-                     TextChanged="SearchTextBox_OnTextChanged" />
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Поиск:" />
+                <TextBox HorizontalAlignment="Right"
+                         Width="200"
+                         Margin="7"
+                         x:Name="SearchTextBox"
+                         TextChanged="SearchTextBox_OnTextChanged" />
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="С:" />
+                <DatePicker x:Name="StartDatePicker"
+                            SelectedDateChanged="DatePicker_OnSelectedDateChanged"
+                            Width="100"
+                            Margin="5" />
+
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="По:" />
+                <DatePicker x:Name="EndDatePicker"
+                            SelectedDateChanged="DatePicker_OnSelectedDateChanged"
+                            DisplayDateStart="{Binding ElementName=StartDatePicker, Path=SelectedDate}"
+                            Width="100"
+                            Margin="5" />
+
+                <Button x:Name="ResetButton"
+                        Content="Сброс"
+                        VerticalAlignment="Center"
+                        Margin="5" 
+                        Click="ResetButton_OnClick"/>
+            </StackPanel>
         </StackPanel>
 
         <ScrollViewer Grid.Row="1">
@@ -26,19 +58,26 @@
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Дата"
+                                        Width="*"
                                         Binding="{Binding Date}" />
                     <DataGridTextColumn Header="Время"
+                                        Width="*"
                                         Binding="{Binding Time, StringFormat='{}{0:HH:mm}'}" />
                     <DataGridTextColumn Header="Фамилия"
+                                        Width="*"
                                         Binding="{Binding Conscript.FirstName}" />
                     <DataGridTextColumn Header="Имя"
+                                        Width="*"
                                         Binding="{Binding Conscript.LastName}" />
                     <DataGridTextColumn Header="Отчество"
+                                        Width="*"
                                         Binding="{Binding Conscript.MiddleName}" />
-                    <DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Margin="7" Padding="5" Content="Подробнее"
+                                <Button Margin="7"
+                                        Padding="5"
+                                        Content="Подробнее"
                                         Click="InfoButton_OnClick" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

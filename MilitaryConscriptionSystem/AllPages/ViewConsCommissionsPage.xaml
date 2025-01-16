@@ -16,8 +16,13 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Поиск:" />
-            <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="SearchTextBox"
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Поиск:" />
+            <TextBox HorizontalAlignment="Right"
+                     Width="200"
+                     Margin="7"
+                     x:Name="SearchTextBox"
                      TextChanged="SearchTextBox_OnTextChanged" />
         </StackPanel>
 
@@ -27,28 +32,36 @@
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Дата начала работы"
+                                        Width="*"
                                         Binding="{Binding Commission.CreateDate}" />
                     <DataGridTextColumn Header="Дата окончания работы"
+                                        Width="*"
                                         Binding="{Binding Commission.WorksUntilDate}" />
                     <DataGridTextColumn Header="Протокол"
+                                        Width="*"
                                         Binding="{Binding Commission.ContainsProtocol}" />
-                    <DataGridTemplateColumn Header="Сотрудники">
+                    <DataGridTemplateColumn Header="Сотрудники"
+                                            Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <ItemsControl ItemsSource="{Binding Employees}">
                                     <ItemsControl.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding ComboBoxField}" />
+                                            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                                                       VerticalAlignment="Center"
+                                                       Text="{Binding ComboBoxField}" />
                                         </DataTemplate>
                                     </ItemsControl.ItemTemplate>
                                 </ItemsControl>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Margin="7" Padding="5" Content="Загрузить протокол"
+                                <Button Margin="7"
+                                        Padding="5"
+                                        Content="Загрузить протокол"
                                         x:Name="ProtocolButton"
                                         Click="ProtocolButton_OnClick" />
                             </DataTemplate>
@@ -58,7 +71,9 @@
             </DataGrid>
         </ScrollViewer>
 
-        <Button Margin="7" Padding="5" x:Name="AddButton"
+        <Button Margin="7"
+                Padding="5"
+                x:Name="AddButton"
                 Click="AddButton_OnClick"
                 Grid.Row="2"
                 Content="Добавить" />

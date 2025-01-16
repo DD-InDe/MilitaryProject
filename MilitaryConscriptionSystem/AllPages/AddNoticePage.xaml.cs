@@ -4,11 +4,11 @@ using MilitaryConscriptionSystem.Database;
 
 namespace MilitaryConscriptionSystem.AllPages;
 
-public partial class AddNotice : Page
+public partial class AddNoticePage : Page
 {
     private MilitaryDraftNotice _notice;
 
-    public AddNotice(Conscript conscript)
+    public AddNoticePage(Conscript conscript)
     {
         _notice = new()
         {
