@@ -6,12 +6,12 @@ using MilitaryConscriptionSystem.Database;
 
 namespace MilitaryConscriptionSystem.AllPages;
 
-public partial class ConscriptEditPage : Page
+public partial class EditConscriptPage : Page
 {
     private ConscriptDocument? _document;
     private Conscript _conscript;
 
-    public ConscriptEditPage()
+    public EditConscriptPage()
     {
         _conscript = new()
         {
@@ -22,7 +22,7 @@ public partial class ConscriptEditPage : Page
         InitializeComponent();
     }
 
-    public ConscriptEditPage(Conscript conscript)
+    public EditConscriptPage(Conscript conscript)
     {
         if (conscript.Passport == null)
             conscript.Passport = Db.Context.Passports.Find(conscript.PassportId);

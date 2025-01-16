@@ -55,7 +55,7 @@ public partial class NoticeInfoPage : Page
     }
 
     private void ConscriptButton_OnClick(object sender, RoutedEventArgs e) =>
-        NavigationService.Navigate(new ConscriptEditPage(_notice.Conscript));
+        NavigationService.Navigate(new EditConscriptPage(_notice.Conscript));
 
     private void AddMedCommissionButton_OnClick(object sender, RoutedEventArgs e)
     {

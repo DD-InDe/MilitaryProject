@@ -55,7 +55,7 @@ public partial class ViewEmployeesPage : Page
 
     private void AddButton_OnClick(object sender, RoutedEventArgs e)
     {
-        NavigationService.Navigate(new EmployeeEditPage());
+        NavigationService.Navigate(new EditEmployeePage());
     }
 
     private void ViewInfoButton_OnClick(object sender, RoutedEventArgs e)
@@ -66,7 +66,7 @@ public partial class ViewEmployeesPage : Page
             if (employee != null)
             {
                 if (employee.PositionId != 6)
-                    NavigationService.Navigate(new EmployeeEditPage(employee));
+                    NavigationService.Navigate(new EditEmployeePage(employee));
                 else
                     MessageBox.Show("Нельзя редактировать администратора", "Сообщение", MessageBoxButton.OK,
                         MessageBoxImage.Information);
