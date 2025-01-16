@@ -22,6 +22,7 @@ public partial class EditEmployeePage : Page
     {
         _employee = employee;
         InitializeComponent();
+        if (_employee.PositionId == 5) PositionComboBox.IsEnabled = false;
     }
 
     private void EmployeeEditPage_OnLoaded(object sender, RoutedEventArgs e)

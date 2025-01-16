@@ -16,8 +16,13 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Поиск:" />
-            <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="SearchTextBox"
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Поиск:" />
+            <TextBox HorizontalAlignment="Right"
+                     Width="200"
+                     Margin="7"
+                     x:Name="SearchTextBox"
                      TextChanged="SearchTextBox_OnTextChanged" />
         </StackPanel>
 
@@ -27,12 +32,16 @@
                       AutoGenerateColumns="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Фамилия"
+                                        Width="*"
                                         Binding="{Binding LastName}" />
                     <DataGridTextColumn Header="Имя"
+                                        Width="*"
                                         Binding="{Binding FirstName}" />
                     <DataGridTextColumn Header="Отчество"
+                                        Width="*"
                                         Binding="{Binding MiddleName}" />
                     <DataGridTextColumn Header="Дата рождения"
+                                        Width="*"
                                         Binding="{Binding BirthDate}" />
                 </DataGrid.Columns>
             </DataGrid>
@@ -40,13 +49,19 @@
 
         <StackPanel Orientation="Horizontal"
                     Grid.Row="2">
-            <Button Margin="7" Padding="5" x:Name="AddButton"
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="AddButton"
                     Click="AddButton_OnClick"
                     Content="Добавить" />
-            <Button Margin="7" Padding="5" x:Name="ViewInfoButton"
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="ViewInfoButton"
                     Click="ViewInfoButton_OnClick"
                     Content="Информация" />
-            <Button Margin="7" Padding="5" x:Name="CreateNoticeButton"
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="CreateNoticeButton"
                     Visibility="Collapsed"
                     Click="CreateNoticeButton_OnClick"
                     Content="Создать повестку" />
