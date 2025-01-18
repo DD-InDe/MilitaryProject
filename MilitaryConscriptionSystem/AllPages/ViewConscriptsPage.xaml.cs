@@ -5,9 +5,9 @@ using MilitaryConscriptionSystem.Database;
 
 namespace MilitaryConscriptionSystem.AllPages;
 
-public partial class ViewConscripts : Page
+public partial class ViewConscriptsPage : Page
 {
-    public ViewConscripts()
+    public ViewConscriptsPage()
     {
         InitializeComponent();
         LoadData();

@@ -12,22 +12,41 @@
 
     <StackPanel Orientation="Vertical">
         <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Дата и время:" />
-            <kit:DateTimePicker x:Name="DateTimePicker"/>
-        </DockPanel>
-        <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Адрес:" />
-            <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="AddressTextBox" />
-        </DockPanel>
-        <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Призывная комиссия:" />
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Призывная комиссия:" />
             <ComboBox Margin="7"
-                            Width="200"
-                            HorizontalAlignment="Right" x:Name="CommissionComboBox"
+                      Width="200"
+                      HorizontalAlignment="Right"
+                      x:Name="CommissionComboBox"
                       DisplayMemberPath="Name" />
         </DockPanel>
+        <DockPanel VerticalAlignment="Center">
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Дата:" />
+            <DatePicker x:Name="DatePicker" />
+        </DockPanel>
+        <DockPanel VerticalAlignment="Center">
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Время:" />
+            <ComboBox x:Name="TimeComboBox" />
+        </DockPanel>
+        <DockPanel VerticalAlignment="Center">
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Адрес:" />
+            <TextBox HorizontalAlignment="Right"
+                     Width="200"
+                     Margin="7"
+                     x:Name="AddressTextBox" />
+        </DockPanel>
 
-        <Button Margin="7" Padding="5" x:Name="SaveButton"
+
+        <Button Margin="7"
+                Padding="5"
+                x:Name="SaveButton"
                 Content="Сохранить"
                 Click="SaveButton_OnClick" />
     </StackPanel>

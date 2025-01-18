@@ -17,7 +17,7 @@ public partial class MenuPage : Page
 
     private void ConscriptButton_OnClick(object sender, RoutedEventArgs e)
     {
-        NavigationService.Navigate(new ViewConscripts());
+        NavigationService.Navigate(new ViewConscriptsPage());
     }
 
     private void EmployeeButton_OnClick(object sender, RoutedEventArgs e)

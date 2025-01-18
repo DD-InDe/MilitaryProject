@@ -16,6 +16,16 @@ public partial class AddNoticePage : Page
         };
         InitializeComponent();
 
+        List<string> times = new();
+        TimeOnly start = new(8, 0);
+        TimeOnly end = new(17, 15);
+        while (start < end)
+        {
+            times.Add(start.ToString("t"));
+            start = start.AddMinutes(15);
+        }
+
+        TimeComboBox.ItemsSource = times;
         CommissionComboBox.ItemsSource = Db.Context.ConscriptionCommissions.ToList();
     }
 
@@ -23,11 +33,13 @@ public partial class AddNoticePage : Page
     {
         try
         {
-            if (DateTimePicker.Value != null && !String.IsNullOrEmpty(AddressTextBox.Text) &&
+            if (TimeComboBox.SelectedItem != null && !String.IsNullOrEmpty(AddressTextBox.Text) &&
                 CommissionComboBox.SelectedItem != null)
             {
-                _notice.Date = DateOnly.FromDateTime(DateTimePicker.Value.Value);
-                _notice.Time = TimeOnly.FromDateTime(DateTimePicker.Value.Value);
+                string[] time = ((String)TimeComboBox.SelectedItem).Split(":");
+                
+                _notice.Date = DateOnly.FromDateTime(DatePicker.SelectedDate.Value);
+                _notice.Time = new TimeOnly(int.Parse(time[0]),int.Parse(time[1]));
                 _notice.Address = AddressTextBox.Text;
                 _notice.ConscriptionCommissionId =
                     ((ConscriptionCommission)CommissionComboBox.SelectedItem).ConscriptionCommissionId;
