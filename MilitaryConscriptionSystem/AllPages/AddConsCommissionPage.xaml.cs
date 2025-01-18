@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Microsoft.EntityFrameworkCore;
 using MilitaryConscriptionSystem.Database;
 
@@ -7,11 +8,17 @@ namespace MilitaryConscriptionSystem.AllPages;
 
 public partial class AddConsCommissionPage : Page
 {
+    private List<EmployeeCheck> _checks;
+
     public AddConsCommissionPage()
     {
         InitializeComponent();
-        EmployeeCheckComboBox.ItemsSource =
-            Db.Context.Employees.Include(c => c.Position).Where(c => c.PositionId != 5).ToList();
+
+        _checks = new();
+        foreach (var employee in Db.Context.Employees.Include(c => c.Position).Where(c => c.PositionId != 5).ToList())
+            _checks.Add(new(employee));
+
+        EmployeeCheckListView.ItemsSource = _checks;
     }
 
     private void SaveButton_OnClick(object sender, RoutedEventArgs e)
@@ -19,9 +26,9 @@ public partial class AddConsCommissionPage : Page
         try
         {
             if (StartDatePicker.SelectedDate != null && EndDatePicker.SelectedDate != null &&
-                EmployeeCheckComboBox.SelectedItems.Count > 0)
+                _checks.Any(c => c.IsChecked))
             {
-                List<Employee> selected = EmployeeCheckComboBox.SelectedItems.Cast<Employee>().ToList();
+                List<Employee> selected = _checks.Where(c => c.IsChecked).Select(c => c.Employee).ToList();
                 if (selected.Any(c => c.PositionId == 1) &&
                     selected.Any(c => c.PositionId == 2) &&
                     selected.Any(c => c.PositionId == 3) &&
@@ -58,6 +65,36 @@ public partial class AddConsCommissionPage : Page
             else
                 MessageBox.Show("Поля не могут быть пустыми!", "Сообщение", MessageBoxButton.OK,
                     MessageBoxImage.Information);
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private void ShowButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        Popup.IsOpen = true;
+    }
+
+    private void CheckBox_StateChanged(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            List<string> selected = _checks.Where(c => c.IsChecked)
+                .Select(c => c.Employee.ComboBoxField).ToList();
+
+            if (selected.Count != 0)
+            {
+                string text = String.Empty;
+                foreach (var se in selected)
+                    text += se + ", ";
+
+                EmployeesTextBox.Text = text.Substring(0, text.Length - 2);
+            }
+            else
+                EmployeesTextBox.Text = string.Empty;
         }
         catch (Exception exception)
         {

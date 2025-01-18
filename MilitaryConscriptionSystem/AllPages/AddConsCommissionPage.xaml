@@ -11,24 +11,67 @@
       d:DesignWidth="800">
     <StackPanel Orientation="Vertical">
         <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Дата начала работы:" />
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Дата начала работы:" />
             <DatePicker Margin="7"
-                            Width="100"
-                            HorizontalAlignment="Right" x:Name="StartDatePicker"/>
+                        Width="100"
+                        HorizontalAlignment="Right"
+                        x:Name="StartDatePicker" />
         </DockPanel>
         <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Дата окончания работы:" />
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Дата окончания работы:" />
             <DatePicker Margin="7"
-                            Width="100"
-                            HorizontalAlignment="Right" x:Name="EndDatePicker"/>
+                        Width="100"
+                        HorizontalAlignment="Right"
+                        x:Name="EndDatePicker" />
         </DockPanel>
         <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Члены комиссии:" />
-            <kit:CheckComboBox x:Name="EmployeeCheckComboBox"
-                               DisplayMemberPath="ComboBoxField" />
-        </DockPanel>
+            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                       VerticalAlignment="Center"
+                       Text="Члены комиссии:" />
+            <DockPanel>
 
-        <Button Margin="7" Padding="5" x:Name="SaveButton"
+                <Button x:Name="ShowButton"
+                        Click="ShowButton_OnClick"
+                        Content="↓"
+                        DockPanel.Dock="Right"
+                        Style="{DynamicResource MaterialDesignFlatButton}"/>
+                <TextBox x:Name="EmployeesTextBox"
+                         DockPanel.Dock="Left"
+                         IsReadOnly="True" />
+            </DockPanel>
+        </DockPanel>
+        <DockPanel>
+
+        </DockPanel>
+        <Popup x:Name="Popup"
+               Width="{Binding ElementName=EmployeesTextBox, Path=ActualWidth}"
+               StaysOpen="False"
+               AllowsTransparency="True"
+               Placement="Bottom"
+               PlacementTarget="{Binding ElementName=EmployeesTextBox}">
+            <ItemsControl x:Name="EmployeeCheckListView"
+                          Margin="5"
+                          Background="#F1F1F1">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel>
+                            <CheckBox Checked="CheckBox_StateChanged"
+                                      Unchecked="CheckBox_StateChanged"
+                                      IsChecked="{Binding IsChecked}"
+                                      Content="{Binding Employee.ComboBoxField}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Popup>
+
+        <Button Margin="7"
+                Padding="5"
+                x:Name="SaveButton"
                 Click="SaveButton_OnClick"
                 Content="Сохранить" />
     </StackPanel>
