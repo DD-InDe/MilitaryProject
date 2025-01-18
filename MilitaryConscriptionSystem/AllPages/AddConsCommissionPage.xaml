@@ -3,76 +3,86 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:kit="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
       mc:Ignorable="d"
-      Title="Добавление призывной комиссии"
-      d:DesignHeight="450"
-      d:DesignWidth="800">
-    <StackPanel Orientation="Vertical">
-        <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
-                       VerticalAlignment="Center"
-                       Text="Дата начала работы:" />
-            <DatePicker Margin="7"
-                        Width="100"
-                        HorizontalAlignment="Right"
-                        x:Name="StartDatePicker" />
-        </DockPanel>
-        <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
-                       VerticalAlignment="Center"
-                       Text="Дата окончания работы:" />
-            <DatePicker Margin="7"
-                        Width="100"
-                        HorizontalAlignment="Right"
-                        x:Name="EndDatePicker" />
-        </DockPanel>
-        <DockPanel VerticalAlignment="Center">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
-                       VerticalAlignment="Center"
-                       Text="Члены комиссии:" />
+      Title="Добавление призывной комиссии">
+    <design:Card HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Padding="20">
+        <StackPanel Orientation="Vertical"
+                    VerticalAlignment="Center">
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Дата начала работы:" />
+                <DatePicker Margin="7"
+                            Width="100"
+                            HorizontalAlignment="Right"
+                            x:Name="StartDatePicker" />
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Дата окончания работы:" />
+                <DatePicker Margin="7"
+                            Width="100"
+                            HorizontalAlignment="Right"
+                            x:Name="EndDatePicker" />
+            </DockPanel>
+            <DockPanel VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Члены комиссии:" />
+                <DockPanel>
+
+                    <Button x:Name="ShowButton"
+                            Click="ShowButton_OnClick"
+                            Content="↓"
+                            Padding="0"
+                            DockPanel.Dock="Right"
+                            Style="{DynamicResource MaterialDesignFlatButton}" />
+                    <TextBox x:Name="EmployeesTextBox"
+                             HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             TextWrapping="Wrap"
+                             DockPanel.Dock="Left"
+                             IsReadOnly="True" />
+                </DockPanel>
+            </DockPanel>
             <DockPanel>
 
-                <Button x:Name="ShowButton"
-                        Click="ShowButton_OnClick"
-                        Content="↓"
-                        DockPanel.Dock="Right"
-                        Style="{DynamicResource MaterialDesignFlatButton}"/>
-                <TextBox x:Name="EmployeesTextBox"
-                         DockPanel.Dock="Left"
-                         IsReadOnly="True" />
             </DockPanel>
-        </DockPanel>
-        <DockPanel>
+            <Popup x:Name="Popup"
+                   MinWidth="{Binding ElementName=EmployeesTextBox, Path=ActualWidth}"
+                   StaysOpen="False"
+                   Placement="Bottom"
+                   PlacementTarget="{Binding ElementName=EmployeesTextBox}">
+                <ItemsControl x:Name="EmployeeCheckListView"
+                              Margin="1"
+                              Padding="5"
+                              Background="#FAFAFA">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <DockPanel>
+                                <CheckBox Checked="CheckBox_StateChanged"
+                                          Margin="5"
+                                          Unchecked="CheckBox_StateChanged"
+                                          IsChecked="{Binding IsChecked}"
+                                          Content="{Binding Employee.ComboBoxField}" />
+                            </DockPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Popup>
 
-        </DockPanel>
-        <Popup x:Name="Popup"
-               Width="{Binding ElementName=EmployeesTextBox, Path=ActualWidth}"
-               StaysOpen="False"
-               AllowsTransparency="True"
-               Placement="Bottom"
-               PlacementTarget="{Binding ElementName=EmployeesTextBox}">
-            <ItemsControl x:Name="EmployeeCheckListView"
-                          Margin="5"
-                          Background="#F1F1F1">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <DockPanel>
-                            <CheckBox Checked="CheckBox_StateChanged"
-                                      Unchecked="CheckBox_StateChanged"
-                                      IsChecked="{Binding IsChecked}"
-                                      Content="{Binding Employee.ComboBoxField}" />
-                        </DockPanel>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Popup>
-
-        <Button Margin="7"
-                Padding="5"
-                x:Name="SaveButton"
-                Click="SaveButton_OnClick"
-                Content="Сохранить" />
-    </StackPanel>
+            <Button Margin="7"
+                    Padding="5"
+                    x:Name="SaveButton"
+                    Click="SaveButton_OnClick"
+                    Content="Сохранить" />
+        </StackPanel>
+    </design:Card>
 </Page>

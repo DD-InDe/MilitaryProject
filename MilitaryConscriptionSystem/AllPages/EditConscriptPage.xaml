@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:design="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:MilitaryConscriptionSystem.AllPages"
       mc:Ignorable="d"
       Title="Управление призывником"
@@ -15,99 +16,182 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <StackPanel x:Name="DataPanel"
-                    Orientation="Vertical"
-                    Grid.Column="0">
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Фамилия:" />
-                <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="LastNameTextBox"
-                         Text="{Binding LastName}" />
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Имя:" />
-                <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="FirstNameTextBox"
-                         Text="{Binding FirstName}" />
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Отчество:" />
-                <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="MiddleNameTextBox"
-                         Text="{Binding MiddleName}" />
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Дата рождения:" />
-                <DatePicker Margin="7"
-                            Width="100"
-                            HorizontalAlignment="Right" x:Name="BirthDatePicker"
-                            SelectedDate="{Binding BirthDateTime}" />
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Дата становления на учет:" />
-                <DatePicker Margin="7"
-                            Width="100"
-                            HorizontalAlignment="Right" x:Name="RegistrationDateDatePicker"
-                            SelectedDate="{Binding RegistrationDateTime}" />
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Серия паспорта:" />
-                <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="PassSTextBox"
-                         MaxLength="4"
-                         Text="{Binding Passport.Serial}" />
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Номер паспорта:" />
-                <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="PassNTextBox"
-                         MaxLength="6"
-                         Text="{Binding Passport.Number}" />
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Кем выдан паспорт:" />
-                <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="IssuedByTextBox"
-                         Text="{Binding Passport.IssuedBy}" />
-            </DockPanel>
-            <DockPanel VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Дата выдачи паспорта:" />
-                <DatePicker Margin="7"
-                            Width="100"
-                            HorizontalAlignment="Right" x:Name="IssuedDatePicker"
-                            SelectedDate="{Binding Passport.IssuedDateTime}" />
-            </DockPanel>
+        <design:Card HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Padding="20">
+            <StackPanel x:Name="DataPanel"
+                        Orientation="Vertical"
+                        Grid.Column="0">
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Фамилия:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             MaxLength="100"
+                             x:Name="LastNameTextBox"
+                             Text="{Binding LastName}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Имя:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             MaxLength="100"
+                             x:Name="FirstNameTextBox"
+                             Text="{Binding FirstName}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Отчество:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             MaxLength="100"
+                             x:Name="MiddleNameTextBox"
+                             Text="{Binding MiddleName}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Дата рождения:" />
+                    <DatePicker Margin="7"
+                                Width="100"
+                                HorizontalAlignment="Right"
+                                x:Name="BirthDatePicker"
+                                SelectedDate="{Binding BirthDateTime}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Дата становления на учет:" />
+                    <DatePicker Margin="7"
+                                Width="100"
+                                HorizontalAlignment="Right"
+                                x:Name="RegistrationDateDatePicker"
+                                SelectedDate="{Binding RegistrationDateTime}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Серия паспорта:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             x:Name="PassSTextBox"
+                             MaxLength="4"
+                             Text="{Binding Passport.Serial}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Номер паспорта:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             x:Name="PassNTextBox"
+                             MaxLength="6"
+                             Text="{Binding Passport.Number}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Кем выдан паспорт:" />
+                    <TextBox HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             MaxLength="200"
+                             x:Name="IssuedByTextBox"
+                             Text="{Binding Passport.IssuedBy}" />
+                </DockPanel>
+                <DockPanel VerticalAlignment="Center">
+                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                               VerticalAlignment="Center"
+                               Text="Дата выдачи паспорта:" />
+                    <DatePicker Margin="7"
+                                Width="100"
+                                HorizontalAlignment="Right"
+                                x:Name="IssuedDatePicker"
+                                SelectedDate="{Binding Passport.IssuedDateTime}" />
+                </DockPanel>
 
-            <Button Margin="7" Padding="5" x:Name="SaveButton"
-                    Content="Сохранить"
-                    Click="SaveButton_OnClick" />
-        </StackPanel>
-        <StackPanel Orientation="Vertical"
-                    Grid.Column="1">
-            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Документы" />
-            <ListView x:Name="FileListView">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding DocumentName}" />
-                            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="{Binding Description}" />
-                            <Button Margin="7" Padding="5" x:Name="DeleteButton"
-                                    Click="DeleteButton_OnClick"
-                                    Content="Удалить" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <StackPanel Orientation="Vertical">
-                <DockPanel VerticalAlignment="Center">
-                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" Text="Описание:" />
-                    <TextBox HorizontalAlignment="Right" Width="200" Margin="7" x:Name="DescriptionTextBox" />
-                </DockPanel>
-                <DockPanel VerticalAlignment="Center">
-                    <Button Margin="7" Padding="5" Content="Загрузить файл"
-                            x:Name="LoadFile"
-                            Click="LoadFile_OnClick" />
-                    <TextBlock Style="{DynamicResource MaterialDesignTextBlock}" VerticalAlignment="Center" x:Name="LoadedFileName" />
-                </DockPanel>
-                <Button Margin="7" Padding="5" x:Name="SaveFileButton"
-                        Visibility="Collapsed"
-                        Click="SaveFileButton_OnClick"
-                        Content="Добавить" />
+                <Button Margin="7"
+                        Padding="5"
+                        x:Name="SaveButton"
+                        Content="Сохранить"
+                        Click="SaveButton_OnClick" />
             </StackPanel>
-        </StackPanel>
+        </design:Card>
+
+        <design:Card HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     Grid.Column="1"
+                     Padding="20">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Style="{DynamicResource MaterialDesignSubtitle1TextBlock}"
+                           HorizontalAlignment="Center"
+                           Margin="5"
+                           Text="Документы" />
+                <ListView x:Name="FileListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding DocumentName}" />
+                                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding Description}" />
+                                <Button Margin="7"
+                                        Padding="5"
+                                        x:Name="DeleteButton"
+                                        Click="DeleteButton_OnClick"
+                                        Content="Удалить" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <design:Card HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             Padding="10">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                                   HorizontalAlignment="Center"
+                                   Text="Новый файл" />
+
+                        <DockPanel VerticalAlignment="Center">
+                            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                                       VerticalAlignment="Center"
+                                       Text="Описание:" />
+                            <TextBox HorizontalAlignment="Right"
+                                     Width="200"
+                                     Margin="7"
+                                     x:Name="DescriptionTextBox" />
+                        </DockPanel>
+                        <DockPanel VerticalAlignment="Center">
+                            <Button Margin="7"
+                                    Padding="5"
+                                    Content="Загрузить файл"
+                                    x:Name="LoadFile"
+                                    Click="LoadFile_OnClick" />
+                            <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                                       VerticalAlignment="Center"
+                                       x:Name="LoadedFileName" />
+                        </DockPanel>
+                        <Button Margin="7"
+                                Padding="5"
+                                x:Name="SaveFileButton"
+                                Visibility="Collapsed"
+                                Click="SaveFileButton_OnClick"
+                                Content="Добавить" />
+                    </StackPanel>
+                </design:Card>
+            </StackPanel>
+        </design:Card>
     </Grid>
 </Page>
