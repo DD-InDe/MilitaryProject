@@ -30,8 +30,6 @@ public partial class AddConsCommissionPage : Page
             {
                 List<Employee> selected = _checks.Where(c => c.IsChecked).Select(c => c.Employee).ToList();
                 if (selected.Any(c => c.PositionId == 1) &&
-                    selected.Any(c => c.PositionId == 2) &&
-                    selected.Any(c => c.PositionId == 3) &&
                     selected.Any(c => c.PositionId == 4))
                 {
                     ConscriptionCommission commission = new()
