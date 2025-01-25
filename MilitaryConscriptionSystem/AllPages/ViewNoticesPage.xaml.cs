@@ -100,7 +100,7 @@ public partial class ViewNoticesPage : Page
             document.ReplaceText("<<адрес>>", notice.Address);
             document.ReplaceText("<<фио комиссара>>", commissarFullName);
             
-            document.SaveAs($"{notice.Conscript.LastName}_{notice.MilitaryDraftNoticeId}.docx");
+            document.SaveAs($"Повестка_#{notice.MilitaryDraftNoticeId}_{notice.Conscript.LastName}.docx");
         }
         catch (Exception exception)
         {
