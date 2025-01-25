@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
 using MilitaryConscriptionSystem.Database;
+using Xceed.Document.NET;
+using Xceed.Words.NET;
 
 namespace MilitaryConscriptionSystem.AllPages;
 
@@ -35,8 +37,10 @@ public partial class ViewNoticesPage : Page
                              (c.Conscript.MiddleName != null && c.Conscript.MiddleName.ToLower().Contains(search))))
                 .ToList();
 
-            notices = notices.Where(c => ((startDate != null && c.Date.Value >= DateOnly.FromDateTime(startDate.Value)) || startDate == null) &&
-                                         ((endDate != null && c.Date.Value <= DateOnly.FromDateTime(endDate.Value)) || endDate == null))
+            notices = notices.Where(c =>
+                    ((startDate != null && c.Date.Value >= DateOnly.FromDateTime(startDate.Value)) ||
+                     startDate == null) &&
+                    ((endDate != null && c.Date.Value <= DateOnly.FromDateTime(endDate.Value)) || endDate == null))
                 .ToList();
 
             if (App.Employee.PositionId != 5)
@@ -74,5 +78,54 @@ public partial class ViewNoticesPage : Page
         SearchTextBox.Text = String.Empty;
         StartDatePicker.SelectedDate = null;
         EndDatePicker.SelectedDate = null;
+    }
+
+    private void DocumentButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            MilitaryDraftNotice notice = ((Button)sender).DataContext as MilitaryDraftNotice;
+
+            Document document = DocX.Load("шаблон.docx");
+            string conscriptFullName =
+                $"{notice.Conscript.LastName} {notice.Conscript.FirstName} {notice.Conscript.MiddleName}";
+            string commissarFullName =
+                $"{App.Employee.LastName} {App.Employee.FirstName} {App.Employee.MiddleName}";
+            document.ReplaceText("<<гражданин>>", conscriptFullName);
+            document.ReplaceText("<<номер>>", notice.MilitaryDraftNoticeId.ToString());
+            document.ReplaceText("<<день>>", notice.Date.Value.Day.ToString());
+            document.ReplaceText("<<месяц>>", GetMonthName(notice.Date.Value.Month));
+            document.ReplaceText("<<год>>", notice.Date.Value.Year.ToString());
+            document.ReplaceText("<<час>>", notice.Time.Value.Hour.ToString());
+            document.ReplaceText("<<адрес>>", notice.Address);
+            document.ReplaceText("<<фио комиссара>>", commissarFullName);
+            
+            document.SaveAs($"{notice.Conscript.LastName}_{notice.MilitaryDraftNoticeId}.docx");
+        }
+        catch (Exception exception)
+        {
+            Console.WriteLine(exception);
+            MessageBox.Show(exception.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
+    private string GetMonthName(int month)
+    {
+        return month switch
+        {
+            1 => "Января",
+            2 => "Февраля",
+            3 => "Марта",
+            4 => "Апреля",
+            5 => "Мая",
+            6 => "Июня",
+            7 => "Июля",
+            8 => "Августа",
+            9 => "Сентября",
+            10 => "Октября",
+            11 => "Ноября",
+            12 => "Декабря",
+            _ => ""
+        };
     }
 }
