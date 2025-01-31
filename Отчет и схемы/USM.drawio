@@ -1,0 +1,67 @@
+<mxfile host="Electron" modified="2025-01-31T07:01:40.101Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="NHvxBkV6FvaWWiYaU8QF" version="24.2.5" type="device">
+  <diagram name="Страница — 1" id="tUK5zPUh93Ex1Jcu9Ne5">
+    <mxGraphModel dx="1203" dy="697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-3" value="Редактирование" style="html=1;fillColor=#CC99FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="135" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-34" value="Добавление повестки" style="html=1;fillColor=#66B2FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-49" value="Указание адреса, времени, даты, комиссии, призывника" style="html=1;fillColor=#FFB366;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="690" y="345" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-1" value="Авторизация" style="html=1;fillColor=#CC99FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="135" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-4" value="Вход в систему" style="html=1;fillColor=#66B2FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-5" value="Добавление призывника" style="html=1;fillColor=#66B2FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-6" value="Добавление призывной комиссии" style="html=1;fillColor=#66B2FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="585" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-10" value="Активности" style="html=1;fillColor=#666666;strokeColor=none;shadow=0;fontSize=14;fontColor=#FFFFFF;align=center;fontStyle=1;whiteSpace=wrap;horizontal=0;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="135" width="30" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-11" value="Задачи" style="html=1;fillColor=#666666;strokeColor=none;shadow=0;fontSize=14;fontColor=#FFFFFF;align=center;fontStyle=1;whiteSpace=wrap;horizontal=0;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="240" width="30" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-2" value="Добавление" style="html=1;fillColor=#CC99FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="584.5" y="135" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-7" value="Ввод логина, пароля" style="html=1;fillColor=#FFB366;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="345" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-8" value="Указание персональных данных" style="html=1;fillColor=#FFB366;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="480" y="345" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-9" value="Указание сотрудников и срока работы" style="html=1;fillColor=#FFB366;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="585" y="345" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-12" value="User stories" style="html=1;fillColor=#666666;strokeColor=none;shadow=0;fontSize=14;fontColor=#FFFFFF;align=center;fontStyle=1;whiteSpace=wrap;horizontal=0;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;imageHeight=39;" vertex="1" parent="1">
+          <mxGeometry x="340" y="345" width="30" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-51" value="Редактирование&amp;nbsp; призывника" style="html=1;fillColor=#66B2FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-53" value="Редактирование повестки" style="html=1;fillColor=#66B2FF;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="910" y="240" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-54" value="Прикрепление документов" style="html=1;fillColor=#FFB366;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="450" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-55" value="Добавление мед. комиссии, вынесение вердикта" style="html=1;fillColor=#FFB366;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="910" y="345" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="RndkUAWvJMsH7pUA9Xn9-56" value="Указание персональных данных" style="html=1;fillColor=#FFB366;strokeColor=none;shadow=0;fontSize=12;fontColor=#FFFFFF;align=center;fontStyle=0;whiteSpace=wrap;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="345" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

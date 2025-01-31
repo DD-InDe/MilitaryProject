@@ -1,0 +1,43 @@
+<mxfile host="Electron" modified="2025-01-31T06:39:16.578Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.2.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="PZx2KvTXXWStI2CORpOF" version="24.2.5" type="device">
+  <diagram name="Страница — 1" id="VW82tyFMcsuj7YcoB8_5">
+    <mxGraphModel dx="819" dy="478" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ITN67NzudOScCHQFx3Gc-17" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="500" y="30" width="300" height="456" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-7" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.uTurnArrow;dy=22;arrowHead=70;dx2=35;strokeColor=#ffffff;fillColor=#12AAB5;fontSize=12;fontColor=#3333FF;flipH=1;flipV=1;strokeWidth=4;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry x="70" y="316" width="230" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-8" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.uTurnArrow;dy=22;arrowHead=70;dx2=35;strokeColor=#ffffff;fillColor=#23445D;fontSize=12;fontColor=#3333FF;flipV=1;strokeWidth=4;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry y="237" width="230" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-9" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.uTurnArrow;dy=22;arrowHead=70;dx2=35;strokeColor=#ffffff;fillColor=#AE4132;fontSize=12;fontColor=#3333FF;flipH=1;flipV=1;strokeWidth=4;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry x="70" y="158" width="230" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-10" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.uTurnArrow;dy=22;arrowHead=70;dx2=35;strokeColor=#ffffff;fillColor=#F2931E;fontSize=12;fontColor=#3333FF;flipV=1;strokeWidth=4;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry y="79" width="230" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-11" value="" style="html=1;shadow=0;dashed=0;align=center;verticalAlign=middle;shape=mxgraph.arrows2.uTurnArrow;dy=22;arrowHead=70;dx2=35;strokeColor=#ffffff;fillColor=#10739E;fontSize=12;fontColor=#3333FF;flipH=1;flipV=1;strokeWidth=4;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry width="300" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-12" value="&lt;b style=&quot;font-size: 7px&quot;&gt;Авторизация&lt;/b&gt;&lt;br style=&quot;font-size: 7px&quot;&gt;Ввод логина и пароля" style="rounded=0;whiteSpace=wrap;shadow=0;strokeColor=none;strokeWidth=6;fillColor=none;fontSize=7;fontColor=#FFFFFF;align=left;html=1;spacingLeft=5;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry x="50" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-13" value="&lt;b style=&quot;font-size: 7px&quot;&gt;Добавление призывника&lt;/b&gt;&lt;br style=&quot;font-size: 7px&quot;&gt;Указание паспортных данных, ФИО и контактных данных" style="rounded=0;whiteSpace=wrap;shadow=0;strokeColor=none;strokeWidth=6;fillColor=none;fontSize=7;fontColor=#FFFFFF;align=left;html=1;spacingLeft=5;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry x="50" y="79" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-14" value="&lt;b style=&quot;font-size: 7px&quot;&gt;Добавление призывной комиссии&lt;/b&gt;&lt;br style=&quot;font-size: 7px&quot;&gt;Указание сроков работы, прикрепление сотрудников" style="rounded=0;whiteSpace=wrap;shadow=0;strokeColor=none;strokeWidth=6;fillColor=none;fontSize=7;fontColor=#FFFFFF;align=left;html=1;spacingLeft=5;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry x="100" y="158" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-15" value="&lt;b style=&quot;font-size: 7px&quot;&gt;Добавление повестки&lt;/b&gt;&lt;br style=&quot;font-size: 7px&quot;&gt;Прикрепление призывника и комиссии, указание адреса, даты и времени&amp;nbsp;" style="rounded=0;whiteSpace=wrap;shadow=0;strokeColor=none;strokeWidth=6;fillColor=none;fontSize=7;fontColor=#FFFFFF;align=left;html=1;spacingLeft=5;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry x="50" y="237" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ITN67NzudOScCHQFx3Gc-16" value="&lt;b&gt;Вынесение вердикта&lt;/b&gt;&lt;br style=&quot;font-size: 7px&quot;&gt;Добавление данных о медицинской комиссии и вынесение вердикта на основе мед. заключения" style="rounded=0;whiteSpace=wrap;shadow=0;strokeColor=none;strokeWidth=6;fillColor=none;fontSize=7;fontColor=#FFFFFF;align=left;html=1;spacingLeft=5;" vertex="1" parent="ITN67NzudOScCHQFx3Gc-17">
+          <mxGeometry x="100" y="316" width="150" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
