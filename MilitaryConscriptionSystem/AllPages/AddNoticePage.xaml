@@ -13,6 +13,49 @@
                  VerticalAlignment="Center"
                  Padding="20">
         <StackPanel Orientation="Vertical">
+            <DockPanel VerticalAlignment="Center" HorizontalAlignment="Right">
+                <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
+                           VerticalAlignment="Center"
+                           Text="Призывники:" />
+                <DockPanel>
+
+                    <Button x:Name="ShowButton"
+                            Click="ShowButton_OnClick"
+                            Content="↓"
+                            Padding="0"
+                            DockPanel.Dock="Right"
+                            Style="{DynamicResource MaterialDesignFlatButton}" />
+                    <TextBox x:Name="ConscriptsTextBox"
+                             HorizontalAlignment="Right"
+                             Width="200"
+                             Margin="7"
+                             TextWrapping="Wrap"
+                             DockPanel.Dock="Left"
+                             IsReadOnly="True" />
+                </DockPanel>
+                <Popup x:Name="Popup"
+                       MinWidth="{Binding ElementName=ConscriptsCheckListView, Path=ActualWidth}"
+                       StaysOpen="False"
+                       Placement="Bottom"
+                       PlacementTarget="{Binding ElementName=ConscriptsTextBox}">
+                    <ItemsControl x:Name="ConscriptsCheckListView"
+                                  Margin="1"
+                                  Padding="5"
+                                  Background="#FAFAFA">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <CheckBox Checked="CheckBox_StateChanged"
+                                              Margin="5"
+                                              Unchecked="CheckBox_StateChanged"
+                                              IsChecked="{Binding IsChecked}"
+                                              Content="{Binding Conscript.FullName}" />
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Popup>
+            </DockPanel>
             <DockPanel VerticalAlignment="Center">
                 <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
                            VerticalAlignment="Center"
@@ -36,9 +79,10 @@
                 <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"
                            VerticalAlignment="Center"
                            Text="Время:" />
-                <ComboBox x:Name="TimeComboBox" Margin="7"
+                <ComboBox x:Name="TimeComboBox"
+                          Margin="7"
                           Width="100"
-                          HorizontalAlignment="Right"/>
+                          HorizontalAlignment="Right" />
             </DockPanel>
             <DockPanel VerticalAlignment="Center">
                 <TextBlock Style="{DynamicResource MaterialDesignTextBlock}"

@@ -17,4 +17,6 @@ public partial class Conscript
         get { return Convert.ToDateTime(RegistrationDate.ToString()); }
         set { RegistrationDate = DateOnly.FromDateTime(value); }
     }
+
+    public string FullName => $"{LastName} {FirstName} {MiddleName}";
 }

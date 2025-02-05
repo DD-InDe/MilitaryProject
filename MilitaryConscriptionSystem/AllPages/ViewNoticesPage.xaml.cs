@@ -13,6 +13,8 @@ public partial class ViewNoticesPage : Page
     {
         InitializeComponent();
         LoadData();
+
+        if (App.Employee.PositionId == 5) CreateNoticeButton.Visibility = Visibility.Visible;
     }
 
     private void SearchTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
@@ -99,7 +101,7 @@ public partial class ViewNoticesPage : Page
             document.ReplaceText("<<час>>", notice.Time.Value.Hour.ToString());
             document.ReplaceText("<<адрес>>", notice.Address);
             document.ReplaceText("<<фио комиссара>>", commissarFullName);
-            
+
             document.SaveAs($"Повестка_#{notice.MilitaryDraftNoticeId}_{notice.Conscript.LastName}.docx");
         }
         catch (Exception exception)
@@ -127,5 +129,10 @@ public partial class ViewNoticesPage : Page
             12 => "Декабря",
             _ => ""
         };
+    }
+
+    private void CreateNoticeButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        NavigationService.Navigate(new AddNoticePage());
     }
 }

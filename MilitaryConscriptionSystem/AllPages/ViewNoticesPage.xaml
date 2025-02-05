@@ -49,6 +49,13 @@
                         VerticalAlignment="Center"
                         Margin="5" 
                         Click="ResetButton_OnClick"/>
+                
+                <Button Margin="7"
+                        Padding="5"
+                        x:Name="CreateNoticeButton"
+                        Visibility="Collapsed"
+                        Click="CreateNoticeButton_OnClick"
+                        Content="Создать повестку" />
             </StackPanel>
         </StackPanel>
 

@@ -59,12 +59,6 @@
                     x:Name="ViewInfoButton"
                     Click="ViewInfoButton_OnClick"
                     Content="Информация" />
-            <Button Margin="7"
-                    Padding="5"
-                    x:Name="CreateNoticeButton"
-                    Visibility="Collapsed"
-                    Click="CreateNoticeButton_OnClick"
-                    Content="Создать повестку" />
         </StackPanel>
     </Grid>
 </Page>
